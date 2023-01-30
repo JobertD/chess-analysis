@@ -9,17 +9,17 @@ public class Data {
             BufferedReader br = new BufferedReader(new FileReader(csvFile));
             String line;
             String[] chess;
-            String data[][] = new String[1001][8];
+            String data[][] = new String[1001][9];
             int row = 0;
 
             while ((line = br.readLine()) != null) {
                 chess = line.split(delimiter);
-                for (int x = 0; x < chess.length - 1; x++) {
+                for (int x = 0; x <= chess.length - 1; x++) {
                     data[row][x] = chess[x];
                 }
                 row++;
             }
-            // System.out.println(Arrays.deepToString(data[1000]));
+             System.out.println(Arrays.deepToString(data[1000]));
             return data;
         }
         catch (IOException e) {
