@@ -9,25 +9,43 @@ public class Main {
         int choice = 0;
 
         while (true) {
-            printMenu("This application is made to handle basic data processing\" +\n" +
-                    "\"\\using an external file as a dataset. Example of such data files are\" +\n" +
-                    "\"\\nCSV, TXT, or JSON files.",
-                    "\nLoad a dataset", "Filter Categories", "Search data",
+            printMenu("\nThis application is made to handle basic data processing using an external\n" +
+                    "file as a dataset. Example of such data files are CSV, TXT, or JSON files.\n\n" +
+                    "========== MAIN MENU ========== \n",
+                    "Load a dataset","View dataset", "Filter Categories", "Search data",
                     "Sort data", "Find Minimum and Maximum");
-            choice = enterChoice("",1 ,5);
+            choice = enterChoice("\nWhat would you like to do? ",1 ,7);
 
             switch (choice){
                 case 1:
                     String file = fileName();
                     dataset = Data.read(file);
+                    pressEnter();
+                    break;
                 case 2:
-                    //Filtering();
+                    Table.showTable(dataset);
+                    pressEnter();
+                    break;
                 case 3:
-                    //Searching();
+                    //Filtering();
+                    pressEnter();
+                    break;
                 case 4:
-                    //Sorting();
+                    //Searching();
+                    pressEnter();
+                    break;
                 case 5:
+                    //Sorting();
+                    pressEnter();
+                    break;
+                case 6:
                     //Max_min();
+                    pressEnter();
+                    break;
+                case 7:
+                    System.out.println("Thank you for using the Application!!!" +
+                            "\nClosing... Have a nice day!!!");
+                    System.exit(0);
             }
         }
     }
@@ -69,18 +87,13 @@ public class Main {
                 System.out.println("Error: your input must be an integer value.\n");
                 continue;
             }
-            return choice;
         }
+        return choice;
     }
 
         public static void pressEnter () {
             System.out.println("PLease Press ENTER to continue...");
-        }
-
-        public static void exit () {
-            System.out.println("Thank you for using the Application!!!" +
-                    "\nClosing... Have a nice day!!!");
-            System.exit(0);
+            sc.nextLine();
         }
     }
-}
+
