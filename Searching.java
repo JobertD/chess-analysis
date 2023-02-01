@@ -12,9 +12,10 @@ import java.util.Arrays;
 import java.util.*;
 
 public class Searching {
+
     public static final String delimiter = ",";
     static Scanner in = new Scanner(System.in);
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void search() throws FileNotFoundException {
         String input = "";
         int count = 0;
         try {
