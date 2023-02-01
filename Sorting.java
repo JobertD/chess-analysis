@@ -12,8 +12,9 @@ public class Sorting {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         List<Integer> lines = new ArrayList<>();
         String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            lines.add(Integer.valueOf(line));
+        while (true) {
+            if ((line = bufferedReader.readLine()) == null) break;
+            final boolean add;
         }
         bufferedReader.close();
 

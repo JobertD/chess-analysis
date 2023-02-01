@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -5,7 +6,7 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
     static String[][] dataset;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         int choice = 0;
 
         while (true) {
@@ -31,7 +32,7 @@ public class Main {
                     pressEnter();
                     break;
                 case 4:
-                    //Searching();
+                    Searching.search();
                     pressEnter();
                     break;
                 case 5:
