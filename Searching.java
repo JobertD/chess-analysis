@@ -30,7 +30,7 @@ public class Searching {
                 }
                 row++;
             }
-
+            System.out.print("Search for a game: ");
             input = in.nextLine();
             for(int i = 0; i < 1001; i++) {
                 for (int j = 0; j < 9; j++) {
