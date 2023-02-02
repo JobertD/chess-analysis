@@ -32,7 +32,11 @@ public class Main {
                     pressEnter();
                     break;
                 case 4:
-                    Searching.search(dataset);
+                    boolean picked = true;
+                    while (picked) {
+                        Searching.search(dataset);
+                        picked = Searching.repeat();
+                    }
                     pressEnter();
                     break;
                 case 5:
