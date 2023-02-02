@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 public class Max_Min {
 
-    private static void minAndMax() {
+    public static void minAndMax() {
         try (Stream<String> stream = Files.lines(Paths.get("Chess_Raw_Data_Sets.csv"))) {
             IntSummaryStatistics statistics = stream
                     .map(s -> s.split(",")[1])

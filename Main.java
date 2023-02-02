@@ -40,7 +40,7 @@ public class Main {
                     pressEnter();
                     break;
                 case 6:
-                    //Max_min();
+                    Max_Min.minAndMax();
                     pressEnter();
                     break;
                 case 7:
