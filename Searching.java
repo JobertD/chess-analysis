@@ -5,7 +5,6 @@
  */
 
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.*;
 
@@ -14,6 +13,8 @@ public class Searching {
 
     static String input;
 
+
+    //User Input method which asks user for input
     public static String userInput() {
         System.out.print("\nSearch a game/username: ");
         input = in.next();
@@ -21,6 +22,7 @@ public class Searching {
     }
 
 
+    //Search method to find the user input in the data set
     public static void search(String[][] data) throws FileNotFoundException {
         int count = 0;
 
@@ -43,6 +45,6 @@ public class Searching {
                 System.out.println("\nUsername/Game is not found in the dataset.");
             }
         } while (input.equalsIgnoreCase("y"));
-        }
     }
+}
 
