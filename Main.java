@@ -36,7 +36,7 @@ public class Main {
                     pressEnter();
                     break;
                 case 5:
-                    //Sorting(dataset);
+                    Sorting.sort(dataset);
                     pressEnter();
                     break;
                 case 6:

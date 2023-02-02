@@ -2,55 +2,50 @@
  Name: Eurecho Aque
 
  */
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class Sorting {
 
-    public static void main(String[] args) throws Exception {
-        FileReader fileReader = new FileReader("Chess_Raw_Data_Sets.csv");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        List<Integer> lines = new ArrayList<>();
-        String line;
-        while (true) {
-            if ((line = bufferedReader.readLine()) == null) break;
-            final boolean add;
-        }
-        bufferedReader.close();
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the name of the CSV file: ");
+        String fileName = input.nextLine();
 
-        sort(lines.toArray(new Integer[0]));
+        ArrayList<String[]> rows = readCSV(fileName);
+        System.out.print("Enter the number of the column to sort by: ");
+        int columnIndex = input.nextInt();
+        sort(rows, columnIndex);
+
+        for (String[] row : rows) {
+            for (String cell : row) {
+                System.out.print(cell + ",");
+            }
+            System.out.println();
+        }
     }
 
-    public static void sort(Integer[] lines) {
-        int counter = 1;
-        int temp;
-        int n = lines.length;
-        // Sorting strings using bubble sort
-        for (int i = 0; i < n; i++, counter ++) {
-            counter++;
-            for (int j = 1; j < (n - i); j++, counter ++) {
-                {
-                    counter++;
-
-                    if (lines[j - 1] > lines[j])
-                    {
-                        counter++;
-                        temp = lines[j - 1];
-                        lines[j - 1] = lines[j];
-                        lines[j] = temp;
-                    }
-                    counter++;
-                }
-                counter++;
+    public static ArrayList<String[]> readCSV(String fileName) {
+        ArrayList<String[]> rows = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                rows.add(line.split(","));
             }
-
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
         }
-        for (int i = 0; i < n; ++i)
-            System.out.print(lines[i] + "\n");
+        return rows;
+    }
 
-        System.out.println();
-        System.out.println("  ---Bubble Sort---");
-        System.out.println("Lines executed: " + counter);
+    public static void sort(ArrayList<String[]> rows, int columnIndex) {
+        Collections.sort(rows, (row1, row2) -> row1[columnIndex].compareTo(row2[columnIndex]));
+    }
 
+    public static void sort(String[][] dataset) {
     }
 }
