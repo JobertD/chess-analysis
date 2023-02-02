@@ -32,7 +32,7 @@ public class Main {
                     pressEnter();
                     break;
                 case 4:
-                    Searching.search();
+                    Searching.search(dataset);
                     pressEnter();
                     break;
                 case 5:

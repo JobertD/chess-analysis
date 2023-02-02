@@ -15,23 +15,10 @@ public class Searching {
 
     public static final String delimiter = ",";
     static Scanner in = new Scanner(System.in);
-    public static void search() throws FileNotFoundException {
+    public static void search(String[][] data) throws FileNotFoundException {
         String input = "";
         int count = 0;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("Chess_Raw_Data_Sets.csv"));
-            String line;
-            String[] chess;
-            String data[][] = new String[1001][9];
-            int row = 0;
 
-            while ((line = br.readLine()) != null) {
-                chess = line.split(delimiter);
-                for (int x = 0; x <= chess.length - 1; x++) {
-                    data[row][x] = chess[x];
-                }
-                row++;
-            }
             //Asks user for input to search in the data set
             System.out.print("Search for a game: ");
             input = in.nextLine();
@@ -52,9 +39,5 @@ public class Searching {
                 System.out.println("Username/Game is not found in the dataset.");
             }
         }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
     }
-}
