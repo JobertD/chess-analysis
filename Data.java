@@ -19,7 +19,7 @@ public class Data {
                 }
                 row++;
             }
-             System.out.println(Arrays.deepToString(data[1000]));
+            System.out.println("Dataset has been successfully loaded!\n");
             return data;
         }
         catch (IOException e) {
@@ -31,16 +31,5 @@ public class Data {
      *  Temporary method, may or may not be useless and redundant.
      *  Keep for now just in case it can be used.
      */
-    public static void category(){
-        HashMap<String, Integer> category = new HashMap<>();
-        category.put("Black", 0 );
-        category.put("BlackElo", 1);
-        category.put("White", 2);
-        category.put("WhiteElo", 3);
-        category.put("Date", 4);
-        category.put("Event", 5);
-        category.put("First Move", 6);
-        category.put("Category", 7);
-        category.put("Weekday", 8);
-    }
+
 }

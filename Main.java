@@ -28,7 +28,7 @@ public class Main {
                     pressEnter();
                     break;
                 case 3:
-                    //Filtering();
+                    Filtering.filter(dataset);
                     pressEnter();
                     break;
                 case 4:
@@ -36,11 +36,11 @@ public class Main {
                     pressEnter();
                     break;
                 case 5:
-                    //Sorting();
+                    //Sorting(dataset);
                     pressEnter();
                     break;
                 case 6:
-                    Max_Min.minAndMax();
+                    //Max_Min.minAndMax(dataset);
                     pressEnter();
                     break;
                 case 7:
