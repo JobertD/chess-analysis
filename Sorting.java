@@ -5,47 +5,49 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
+
+import static java.util.Collections.list;
 
 public class Sorting {
+    static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter the name of the CSV file: ");
-        String fileName = input.nextLine();
 
-        ArrayList<String[]> rows = readCSV(fileName);
-        System.out.print("Enter the number of the column to sort by: ");
-        int columnIndex = input.nextInt();
-        sort(rows, columnIndex);
 
-        for (String[] row : rows) {
-            for (String cell : row) {
-                System.out.print(cell + ",");
-            }
-            System.out.println();
+    public static void sort(String[][] data) {
+        LinkedList<String> list = new LinkedList<>();
+
+        System.out.println("""
+                
+                SORT BY
+                1. Black
+                2. Black Elo
+                3. White
+                4. White Elo
+                5. Date
+                6. Event
+                7. First Move
+                8. Category
+                9. Weekday
+                How would you like the data sorted? """);
+        int sortBy = sc.nextInt() - 1;
+
+        for (int x = 1; x < data.length; x++){
+            String temp = data[x][sortBy];
+            data[x][sortBy] = data[x][0];
+            data[x][0] = temp;
         }
-    }
-
-    public static ArrayList<String[]> readCSV(String fileName) {
-        ArrayList<String[]> rows = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                rows.add(line.split(","));
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
+        for (String[] datum : data) {
+            list.add(Arrays.toString(datum));
         }
-        return rows;
-    }
+        System.out.println(list.getFirst());
+        list.removeFirst();
+        Collections.sort(list);
+        for (int x = 0; x < list.size(); x++) {
+            System.out.println(list.get(x));
+        }
+        System.out.println();
 
-    public static void sort(ArrayList<String[]> rows, int columnIndex) {
-        Collections.sort(rows, (row1, row2) -> row1[columnIndex].compareTo(row2[columnIndex]));
-    }
 
-    public static void sort(String[][] dataset) {
     }
 }

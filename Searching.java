@@ -36,7 +36,6 @@ public class Searching {
             }
         }
 
-        //Table.showTable(result);
         //If user input is not found in the dataset,
         // show error message.
         if (count == 0) {

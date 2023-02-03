@@ -7,7 +7,7 @@ public class Filtering {
         int quan = 0;
         System.out.println("""
                 
-                
+               
                 FILTER CHOICES
                 1. Black
                 2. Black Elo
