@@ -44,7 +44,7 @@ public class Main {
                     pressEnter();
                     break;
                 case 6:
-                    //Max_Min.minAndMax(dataset);
+                    Max_Min.getUserInput(dataset);
                     pressEnter();
                     break;
                 case 7:

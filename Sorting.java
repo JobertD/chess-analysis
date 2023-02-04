@@ -12,8 +12,6 @@ import static java.util.Collections.list;
 public class Sorting {
     static Scanner sc = new Scanner(System.in);
 
-
-
     public static void sort(String[][] data) {
         LinkedList<String> list = new LinkedList<>();
 
@@ -47,7 +45,5 @@ public class Sorting {
             System.out.println(list.get(x));
         }
         System.out.println();
-
-
     }
 }

@@ -10,16 +10,16 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Max_Min {
-
     private static String input;
     static Scanner scan = new Scanner(System.in);
     static int choice;
+    static Stack<String> temp = new Stack<>();
 
     static void getUserInput(String[][] data) throws FileNotFoundException {
         System.out.println("""
                 Choose option from the following:
-                1. Display the lowest rated player.
-                2. Display the highest rated player.
+                1. Display match with the lowest rated player.
+                2. Display match with the highest rated player.
                 3. Percentage of chess games based on date.
                 4. Percentage of chess games based on opening move.
                 5. Percentage of chess games based on game type. 
@@ -30,6 +30,7 @@ public class Max_Min {
                 minElo(data);
                 break;
             case 2:
+                maxElo(data);
                 break;
             case 3:
                 break;
@@ -42,32 +43,41 @@ public class Max_Min {
     }
 
     public static void minElo(String[][] data) throws FileNotFoundException {
-        String min = "";
+        int min = 10000;
 
-            for (int i = 0; i < data.length; i++) {
-                for (int j = 0; j < data[0].length; j++) {
-                    if (data[i][4].equals(Integer.parseInt(min))) {
-                        min = data[i][4];
+            for (int i = 1; i < data.length; i++) {
+                if (min > Integer.parseInt(data[i][3])) {
+                    min = Integer.parseInt(data[i][3]);
+                    if (min > Integer.parseInt(data[i][1])) {
+                        min = Integer.parseInt(data[i][1]);
                     }
-                    if (data[i][2].equals(Integer.parseInt(min))) {
-                        min = data[i][2];
+                    if (!temp.isEmpty()){
+                        temp.pop();
                     }
+                    temp.push(Arrays.toString(data[i]));
                 }
             }
-        System.out.println(min);
+        System.out.println(temp.toString());
     }
 
-   /* public static void maxElo(String[][] data) throws FileNotFoundException {
-        String max;
+    public static void maxElo(String[][] data) throws FileNotFoundException {
+        int max = 0;
 
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j > data.length; j++) {
-                if(data[i][j].compareToIgnoreCase(Integer.valueOf(max))) {
-                    max = data[i][j];
+        for (int i = 1; i < data.length; i++) {
+            if (max < Integer.parseInt(data[i][3])) {
+                max = Integer.parseInt(data[i][3]);
+                if (max < Integer.parseInt(data[i][1])) {
+                    max = Integer.parseInt(data[i][1]);
                 }
+                if (!temp.isEmpty()){
+                    temp.pop();
+                }
+                temp.push(Arrays.toString(data[i]));
             }
+        }
+        System.out.println(temp.toString());
     }
-*/
+
 
 
 
