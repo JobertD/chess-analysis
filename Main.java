@@ -10,6 +10,7 @@ public class Main {
         int choice = 0;
 
         while (true) {
+            boolean picked = true;
             printMenu("\nThis application is made to handle basic data processing using an external\n" +
                     "file as a dataset. Example of such data files are CSV, TXT, or JSON files.\n\n" +
                     "========== MAIN MENU ========== \n",
@@ -28,23 +29,31 @@ public class Main {
                     pressEnter();
                     break;
                 case 3:
+                    while (picked) {
                     Filtering.filter(dataset);
+                        picked = repeat();
+                    }
                     pressEnter();
                     break;
                 case 4:
-                    boolean picked = true;
                     while (picked) {
                         Searching.search(dataset);
-                        picked = Searching.repeat();
+                        picked = repeat();
                     }
                     pressEnter();
                     break;
                 case 5:
-                    Sorting.sort(dataset);
+                    while (picked) {
+                        Sorting.sort(dataset);
+                        picked = repeat();
+                    }
                     pressEnter();
                     break;
                 case 6:
-                    Max_Min.getUserInput(dataset);
+                    while (picked) {
+                        Max_Min.getUserInput(dataset);
+                        picked = repeat();
+                    }
                     pressEnter();
                     break;
                 case 7:
@@ -100,5 +109,24 @@ public class Main {
             System.out.println("PLease Press ENTER to continue...");
             sc.nextLine();
         }
-    }
 
+         public static boolean repeat() {
+             boolean loop = true;
+             boolean pick = false;
+
+             while (loop) {
+                 System.out.print("\nWould you like to search again? [Y/N] ");
+                 String choice = sc.nextLine();
+                 if (choice.equalsIgnoreCase("y")) {
+                     pick = true;
+                     loop = false;
+                 } else if ((!choice.equalsIgnoreCase("n"))) {
+                     System.out.println("Please Pick Between Y/N... ");
+                 } else {
+                     loop = false;
+                 }
+             }
+
+             return pick;
+         }
+}

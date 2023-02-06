@@ -43,25 +43,6 @@ public class Searching {
         }
 
     }
-    public static boolean repeat() {
-        boolean loop = true;
-        boolean pick = false;
-
-        while (loop){
-            System.out.print("\nWould you like to search again? [Y/N] ");
-            String choice = in.nextLine();
-            if (choice.equalsIgnoreCase("y")) {
-                pick = true;
-                loop = false;
-            } else if ((!choice.equalsIgnoreCase("n"))) {
-                System.out.println("Please Pick Between Y/N... ");
-            }
-            else{
-                loop = false;
-            }
-        }
-
-        return pick;
-    }
 }
+
 

@@ -20,9 +20,6 @@ public class Max_Min {
                 Choose option from the following:
                 1. Display match with the lowest rated player.
                 2. Display match with the highest rated player.
-                3. Percentage of chess games based on date.
-                4. Percentage of chess games based on opening move.
-                5. Percentage of chess games based on game type. 
                 """);
         choice = scan.nextInt();
         switch (choice) {
